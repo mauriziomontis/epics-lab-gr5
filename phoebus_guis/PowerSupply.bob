@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-08-14 07:04:28 by epics-->
+<!--Saved on 2024-08-14 08:34:55 by epics-->
 <display version="2.0.0">
   <name>Display</name>
   <actions>
@@ -13,25 +13,36 @@
     <name>POWER_SUPPLY</name>
     <x>10</x>
     <y>10</y>
-    <width>450</width>
-    <height>270</height>
+    <width>390</width>
+    <height>520</height>
     <line_width>5</line_width>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_1</name>
-    <text>POWER_SUPPLY</text>
+    <class>SECTION</class>
+    <text>POWER SUPPLY</text>
     <x>20</x>
     <y>20</y>
-    <height>25</height>
+    <width>130</width>
+    <height>40</height>
+    <font use_class="true">
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
   </widget>
   <widget type="led" version="2.0.0">
     <name>ON/OFF</name>
     <class>ON_OFF</class>
     <pv_name>GROUP5:PS:STATUSREGISTER.B0</pv_name>
-    <x>20</x>
-    <y>45</y>
-    <width>30</width>
-    <height>35</height>
+    <x>184</x>
+    <y>30</y>
+    <width>43</width>
+    <height>40</height>
     <off_label>OFF</off_label>
     <off_color use_class="true">
       <color name="Off" red="60" green="100" blue="60">
@@ -46,8 +57,8 @@
   <widget type="meter" version="3.0.0">
     <name>CURRENT</name>
     <pv_name>GROUP5:PS:CURRENT_RB</pv_name>
-    <x>30</x>
-    <y>90</y>
+    <x>20</x>
+    <y>110</y>
     <width>180</width>
     <height>105</height>
     <format>4</format>
@@ -57,20 +68,20 @@
   <widget type="meter" version="3.0.0">
     <name>VOLTAGE</name>
     <pv_name>GROUP5:PS:VOLTAGE_RB</pv_name>
-    <x>220</x>
-    <y>90</y>
-    <width>160</width>
+    <x>210</x>
+    <y>110</y>
+    <width>180</width>
     <height>106</height>
     <limits_from_pv>false</limits_from_pv>
     <maximum>20.0</maximum>
   </widget>
   <widget type="rectangle" version="2.0.0">
     <name>STEP_MOTOR</name>
-    <x>490</x>
-    <y>20</y>
-    <width>300</width>
-    <height>260</height>
-    <line_width>10</line_width>
+    <x>410</x>
+    <y>10</y>
+    <width>270</width>
+    <height>130</height>
+    <line_width>5</line_width>
     <line_color>
       <color name="Attention" red="255" green="160" blue="0">
       </color>
@@ -83,9 +94,19 @@
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_2</name>
-    <text>STEP_MOTOR</text>
-    <x>510</x>
-    <y>30</y>
+    <class>SECTION</class>
+    <text>STEP MOTOR</text>
+    <x>430</x>
+    <y>20</y>
+    <font use_class="true">
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
   </widget>
   <widget type="action_button" version="3.0.0">
     <name>Action Button</name>
@@ -98,10 +119,9 @@
     </actions>
     <pv_name>GROUP5:PS:ONOFF.PROC</pv_name>
     <text>ON/OFF</text>
-    <x>55</x>
-    <y>45</y>
-    <width>90</width>
-    <height>35</height>
+    <x>249</x>
+    <y>30</y>
+    <height>50</height>
     <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="action_button" version="3.0.0">
@@ -115,10 +135,10 @@
   <widget type="textentry" version="3.0.0">
     <name>Text Entry</name>
     <pv_name>GROUP5:PS:CURRENT_SP</pv_name>
-    <x>40</x>
-    <y>210</y>
+    <x>30</x>
+    <y>270</y>
     <width>150</width>
-    <height>35</height>
+    <height>25</height>
     <precision>2</precision>
   </widget>
   <widget type="action_button" version="3.0.0">
@@ -143,14 +163,15 @@
     <actions>
       <action type="write_pv">
         <pv_name>Gr5:Ax1_Mtr</pv_name>
-        <value>1000</value>
-        <description>back</description>
+        <value>5000</value>
+        <description>BACK</description>
       </action>
     </actions>
     <pv_name>Gr5:Ax1_Mtr</pv_name>
-    <x>520</x>
-    <y>70</y>
-    <height>59</height>
+    <x>430</x>
+    <y>50</y>
+    <width>110</width>
+    <height>65</height>
     <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="action_button" version="3.0.0">
@@ -158,41 +179,137 @@
     <actions>
       <action type="write_pv">
         <pv_name>Gr5:Ax1_Mtr</pv_name>
-        <value>-3780</value>
-        <description>front</description>
+        <value>3780</value>
+        <description>FRONT</description>
       </action>
     </actions>
     <pv_name>Gr5:Ax1_Mtr</pv_name>
-    <x>640</x>
-    <y>70</y>
+    <x>550</x>
+    <y>50</y>
     <width>110</width>
-    <height>59</height>
+    <height>65</height>
     <tooltip>$(actions)</tooltip>
   </widget>
-  <widget type="thermometer" version="2.0.0">
-    <name>Thermometer</name>
-    <x>550</x>
-    <y>390</y>
+  <widget type="meter" version="3.0.0">
+    <name>T_MOSFET</name>
+    <pv_name>GROUP5:PS:TEMPERATURE_MOSFET</pv_name>
+    <x>20</x>
+    <y>358</y>
+    <width>180</width>
+    <height>106</height>
+    <limits_from_pv>false</limits_from_pv>
+    <maximum>55.0</maximum>
   </widget>
   <widget type="meter" version="3.0.0">
-    <name>Meter</name>
-    <x>600</x>
-    <y>390</y>
-    <width>150</width>
-    <height>80</height>
+    <name>T_RESISTOR</name>
+    <pv_name>GROUP5:PS:TEMPERATURE_RESISTOR</pv_name>
+    <x>210</x>
+    <y>358</y>
+    <width>180</width>
+    <height>106</height>
+    <limits_from_pv>false</limits_from_pv>
+    <maximum>55.0</maximum>
   </widget>
-  <widget type="meter" version="3.0.0">
-    <name>Meter_1</name>
-    <x>600</x>
-    <y>490</y>
-    <width>150</width>
-    <height>80</height>
+  <widget type="textupdate" version="2.0.0">
+    <name>ID</name>
+    <pv_name>GROUP5:PS:PSU_ID</pv_name>
+    <x>20</x>
+    <y>497</y>
+    <width>120</width>
   </widget>
-  <widget type="scrollbar" version="2.0.0">
-    <name>Scrollbar</name>
-    <x>530</x>
-    <y>160</y>
-    <width>190</width>
-    <height>50</height>
+  <widget type="textupdate" version="2.0.0">
+    <name>FIRMWARE_VERS</name>
+    <pv_name>GROUP5:PS:FIRMWARE_VERS</pv_name>
+    <x>210</x>
+    <y>497</y>
+    <width>120</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>SKEW_RATE</name>
+    <pv_name>GROUP5:PS:SKEW_RATE_RB</pv_name>
+    <x>210</x>
+    <y>270</y>
+    <width>50</width>
+    <height>25</height>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_2</name>
+    <pv_name>GROUP5:PS:SKEW_RATE_SP</pv_name>
+    <x>300</x>
+    <y>270</y>
+    <width>50</width>
+    <height>25</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>TEMPERATURE        MOSFET</text>
+    <x>52</x>
+    <y>325</y>
+    <width>115</width>
+    <height>60</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>CURRENT</text>
+    <x>81</x>
+    <y>90</y>
+    <width>70</width>
+    <height>25</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>VOLTAGE</text>
+    <x>265</x>
+    <y>90</y>
+    <width>70</width>
+    <height>25</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>SET CURRENT VALUE</text>
+    <x>30</x>
+    <y>253</y>
+    <width>150</width>
+    <height>25</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>TEMPERATURE       RESISTOR</text>
+    <x>243</x>
+    <y>325</y>
+    <width>115</width>
+    <height>60</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>ID ADDRESS</text>
+    <x>20</x>
+    <y>479</y>
+    <width>150</width>
+    <height>25</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>FIRMWARE VERSION</text>
+    <x>210</x>
+    <y>479</y>
+    <width>150</width>
+    <height>25</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>SKEW RATE</text>
+    <x>210</x>
+    <y>237</y>
+    <width>60</width>
+    <height>40</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_10</name>
+    <text>SET SKEW RATE</text>
+    <x>300</x>
+    <y>237</y>
+    <width>80</width>
+    <height>40</height>
   </widget>
 </display>
