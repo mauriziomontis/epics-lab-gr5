@@ -1,0 +1,6 @@
+epicsEnvSet("IOC","iocg5_devices")
+epicsEnvSet("TOP","/home/epics/workspace/group5")
+epicsEnvSet("CALC","/opt/epics/calc-3.7.5")
+epicsEnvSet("STREAM","/opt/epics/stream-2.8.24/")
+epicsEnvSet("ASYN","/opt/epics/asyn-4.44.2/")
+epicsEnvSet("EPICS_BASE","/opt/epics/base-7.0.8")

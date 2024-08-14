@@ -1,0 +1,131 @@
+record(ai, "GROUP5:PS:VOLTAGE_RB") {
+
+	field(DESC, "Read voltage from PSU")
+	field(EGU, "VOLT")
+
+	field(DTYP, "stream")
+	field(INP, "@psu_protocol.proto GET_VOLTAGE PSU_G5")
+
+	field(SCAN, "1 second")	
+}
+
+
+record(ai, "GROUP5:PS:CURRENT_RB") {
+	
+	field(DESC, "Read current from PSU")
+	field(EGU, "AMPERE")
+	
+	field(DTYP, "stream")
+	field(INP, "@psu_protocol.proto GET_CURRENT PSU_G5")
+	
+	field(SCAN, "1 second")
+}
+
+
+record(ao, "GROUP5:PS:CURRENT_SP") {
+	
+	field(DESC, "Send current setpoint to PSU")
+	field(EGU, "AMPERE")
+	
+	field(DTYP, "stream")
+	field(OUT, "@psu_protocol.proto SET_CURRENT PSU_G5")
+	
+	field(DISV, "0")
+}
+
+
+record(mbbiDirect, "GROUP5:PS:STATUSREGISTER") {
+	
+	field(DESC, "Get 8bit-Statusregister from PSU")
+	
+	field(DTYP, "stream")
+	field(INP, "@psu_protocol.proto GET_STATUS PSU_G5")
+	field(MASK, "0")
+	field(NOBT, "8")
+
+	field(PINI, "YES")
+	field(SCAN, "2 second")
+	
+	field(FLNK, "GROUP5:PS:ACTIVATE_CURRENT_RECORD PP")	
+}
+
+
+record(bo, "GROUP5:PS:ONOFF") {
+	
+	field(DESC, "Turn PSU on/off, call via .PROC 1")
+
+	field(DTYP, "stream")
+	field(OUT, "@psu_protocol.proto SWITCH_ONOFF PSU_G5")
+
+	field(OMSL, "closed_loop")
+	field(DOL, "GROUP5:PS:STATUSREGISTER.B0 PP")
+	
+	field(FLNK, "GROUP5:PS:STATUSREGISTER PP")
+}
+
+
+record(seq, "GROUP5:PS:ACTIVATE_CURRENT_RECORD") {
+
+	field(DESC, "Activate or disable CURRENT_SP record")
+
+	field(DOL0, "GROUP5:PS:STATUSREGISTER.B0 NPP")
+	field(LNK0, "GROUP5:PS:CURRENT_SP.DISA")
+	field(DLY0, "3.0")
+	field(DO1, "1")
+	field(LNK1, "GROUP5:PS:CURRENT_SP.PROC")
+}
+
+record(bo, "GROUP5:PS:RESET_PSU") {
+	field(DESC, "Reset PSU")
+	field(DTYP, "stream")
+	field(OUT, "@psu_protocol.proto RESET PSU_G5")
+	field(SCAN, "Passive")
+	field(FLNK, "GROUP5:PS:STATUSREGISTER PP")
+}
+
+record(ai, "GROUP5:PS:SKEW_RATE_RB") {
+	field(DESC, "Get currently set skew rate")
+	field(DTYP, "stream")
+	field(INP, "@psu_protocol.proto GET_SKEWRATE PSU_G5")
+	field(SCAN, "10 second")
+}
+
+record(ao, "GROUP5:PS:SKEW_RATE_SP") {
+	field(DESC, "Set skew rate")
+	field(DTYP, "stream")
+	field(OUT, "@psu_protocol.proto SET_SKEWRATE PSU_G5")
+	field(SCAN, "Passive")
+}
+
+record(stringin, "GROUP5:PS:PSU_ID") {
+	field(DESC, "Get identification number of PSU")
+	field(DTYP, "stream")
+	field(INP, "@psu_protocol.proto GET_ID PSU_G5")
+	field(SCAN, "Passive")
+	field(PINI, "YES")
+}
+
+record(stringin, "GROUP5:PS:FIRMWARE_VERS") {
+	field(DESC, "Get firmware version of PSU")
+	field(DTYP, "stream")
+	field(INP, "@psu_protocol.proto GET_FWVER PSU_G5")
+	field(SCAN, "Passive")
+	field(PINI, "YES")
+}
+
+record(ai, "GROUP5:PS:TEMPERATURE_MOSFET") {
+	field(DESC, "Get temperature at MOSFET")
+	field(DTYP, "stream")
+	field(INP, "@psu_protocol.proto GET_TEMP_MOSFET PSU_G5")
+	field(SCAN, "10 second")
+}
+
+record(ai, "GROUP5:PS:TEMPERATURE_RESISTOR") {
+	field(DESC, "Get temperature at resistor")
+	field(DTYP, "stream")
+	field(INP, "@psu_protocol.proto GET_TEMP_RES PSU_G5")
+	field(SCAN, "10 second")
+}
+
+
+

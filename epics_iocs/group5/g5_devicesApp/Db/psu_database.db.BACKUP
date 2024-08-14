@@ -1,0 +1,66 @@
+record(ai, "GROUP5:PS:VOLTAGE_RB") {
+	field(DTYP, "stream")
+	field(SCAN, "1 second")
+	field(INP, "@psu_protocol.proto GET_VOLTAGE PSU_G5")
+	field(EGU, "VOLT")
+	field(DESC, "Read voltage from PSU")
+}
+
+record(ai, "GROUP5:PS:CURRENT_RB") {
+	field(DTYP, "stream")
+	field(SCAN, "1 second")
+	field(INP, "@psu_protocol.proto GET_CURRENT PSU_G5")
+	field(EGU, "AMPERE")
+	field(DESC, "Read current from PSU")
+}
+
+record(ao, "GROUP5:PS:CURRENT_SP") {
+	field(DTYP, "stream")
+	#field(PINI, "YES")
+	#field(SCAN, "1 second")
+	#field(FLNK, "GROUP5:PS:SET_CURRENT_LOGIC")
+	field(OUT, "@psu_protocol.proto SET_CURRENT PSU_G5")
+	field(SDIS, "GROUP5:PS:STATUSREGISTER.B0 PP")
+	#field(SDIS, "GROUP5:PS:ONOFF PP")
+	field(DISV, "0")
+	field(EGU, "AMPERE")
+	field(DESC, "Set current setpoint of PSU")
+}
+
+record(mbbiDirect, "GROUP5:PS:STATUSREGISTER") {
+	field(DTYP, "stream")
+	field(PINI, "YES")
+#	field(SCAN, "2 second")
+	field(INP, "@psu_protocol.proto GET_STATUS PSU_G5")
+	field(DESC, "Get Statusregister from PSU")
+	field(MASK, "0")
+	field(NOBT, "8")
+}
+
+record(bo, "GROUP5:PS:ONOFF") {
+#	FIELD(DTYP, "stream")
+#	field(PINI, "YES")
+	field(OMSL, "closed_loop")
+	field(DOL, "GROUP5:PS:STATUSREGISTER.B0 PP")
+#	field(FLNK, "GROUP5:PS:STATUSREGISTER PP")
+	field(FLNK, "GROUP5:PS:CURRENT_SP.PROC PP")
+	field(DTYP, "stream")
+	field(OUT, "@psu_protocol.proto SWITCH_ONOFF PSU_G5")
+#	FIELD(DESC, "Turn PSU outpot on and off")
+}
+
+#record(bi, "GROUP5:PS:PSU_STATUS") {
+#	FIELD(DTYP, "STREAM")
+#	FIELD(SCAN, "1 second")
+#	FIELD(INP, "@PSU_PROTOCOL.PROTO GET_STATUS PSU_G5")
+#	FIELD(DESC, "Turn PSU outpot on and off")
+#}
+
+#record(calcout, "GROUP5:PS:SET_CURRENT_LOGIC") {
+#	field(DTYP, "stream")
+#	field(INPA, "GROUP5:PS:PSU_STATUSREGISTER.B0 PP")
+#	field(CALC, "A=1")
+#	field(OUT, "@psu_protocol.proto SET_CURRENT PSU_G5")
+#}
+
+
