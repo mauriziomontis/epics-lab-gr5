@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-08-14 08:39:31 by epics-->
+<display version="2.0.0">
+  <name>Display</name>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_1</name>
+    <x>10</x>
+    <y>240</y>
+    <width>310</width>
+    <height>160</height>
+    <line_color>
+      <color red="255" green="160" blue="0" alpha="67">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="255" green="160" blue="0" alpha="45">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_2</name>
+    <x>330</x>
+    <y>80</y>
+    <width>280</width>
+    <height>320</height>
+    <line_color>
+      <color red="0" green="255" blue="0" alpha="32">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="0" green="255" blue="0" alpha="34">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle</name>
+    <x>10</x>
+    <y>80</y>
+    <width>310</width>
+    <height>160</height>
+    <line_color>
+      <color red="0" green="0" blue="255" alpha="42">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="30" green="144" blue="255" alpha="48">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Gaussmeter</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Switch the probe's 
+status to On/Off:</text>
+    <x>30</x>
+    <y>100</y>
+    <width>120</width>
+    <height>50</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <class>COMMENT</class>
+    <text>Probe's status:</text>
+    <x>30</x>
+    <y>190</y>
+    <width>140</width>
+    <height>40</height>
+    <font use_class="true">
+      <font name="Comment" family="Liberation Sans" style="ITALIC" size="14.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <wrap_words use_class="true">true</wrap_words>
+  </widget>
+  <widget type="choice" version="2.0.0">
+    <name>Choice Button</name>
+    <pv_name>group5:GM:On_Off</pv_name>
+    <x>180</x>
+    <y>100</y>
+    <width>120</width>
+    <height>30</height>
+    <items>
+      <item>On</item>
+      <item>Off</item>
+    </items>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>group5:GM:On_Off_RB</pv_name>
+    <x>210</x>
+    <y>180</y>
+    <width>40</width>
+    <height>40</height>
+    <off_label>off</off_label>
+    <off_color>
+      <color name="STOP" red="255" green="0" blue="0">
+      </color>
+    </off_color>
+    <on_label>on</on_label>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <class>COMMENT</class>
+    <text>Switch the probe's 
+mode to AC/DC:</text>
+    <x>30</x>
+    <y>270</y>
+    <width>140</width>
+    <height>40</height>
+    <font use_class="true">
+      <font name="Comment" family="Liberation Sans" style="ITALIC" size="14.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <wrap_words use_class="true">true</wrap_words>
+  </widget>
+  <widget type="choice" version="2.0.0">
+    <name>Choice Button_1</name>
+    <pv_name>group5:GM:ACDC</pv_name>
+    <x>180</x>
+    <y>270</y>
+    <width>120</width>
+    <height>30</height>
+    <items>
+      <item>AC</item>
+      <item>DC</item>
+    </items>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <class>COMMENT</class>
+    <text>Probe's status:</text>
+    <x>30</x>
+    <y>350</y>
+    <width>140</width>
+    <height>40</height>
+    <font use_class="true">
+      <font name="Comment" family="Liberation Sans" style="ITALIC" size="14.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <wrap_words use_class="true">true</wrap_words>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>group5:GM:ACDC_RB</pv_name>
+    <x>180</x>
+    <y>350</y>
+    <width>120</width>
+    <height>30</height>
+    <precision>-3</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <class>COMMENT</class>
+    <text>MAgnetics Field Measurement</text>
+    <x>380</x>
+    <y>100</y>
+    <width>190</width>
+    <height>40</height>
+    <font use_class="true">
+      <font name="Comment" family="Liberation Sans" style="ITALIC" size="14.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <wrap_words use_class="true">true</wrap_words>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>group5:GM:MField</pv_name>
+    <x>420</x>
+    <y>150</y>
+    <width>120</width>
+    <height>50</height>
+    <precision>0</precision>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>X/Y Plot</name>
+    <x>350</x>
+    <y>230</y>
+    <width>240</width>
+    <height>130</height>
+  </widget>
+</display>
