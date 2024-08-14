@@ -1,0 +1,67 @@
+##########################################
+## EPICS Summer School LakeShore Gaussmeter db file
+## Hatice Irem Nalcak
+##########################################
+
+
+#record (stringin, "$(group):$(device):ID") {
+#	field(DESC, "Identification Query")
+#	field(DTYP, "stream")
+#	field(SCAN, "Passive")
+#	field(PINI, "YES")
+#	field(INP, "@magnet.proto getID lake_shore")
+#}
+
+record (bo, "$(group):$(device):On_Off") {
+	field(DESC, "Switch on and off the probe")
+	field(DTYP, "stream")
+	field(SCAN, "Passive")
+	field(PINI, "YES")
+	field(OUT, "@magnet.proto setOnOff lake_shore")
+}
+
+record (bi, "$(group):$(device):On_Off_RB") {
+	field(DESC, "Reading status of the probe")
+	field(DTYP, "stream")
+	field(SCAN, "2 second")
+	field(ZNAM, "On")
+	field(ONAM, "Off")
+	field(PINI, "YES")
+	field(INP, "@magnet.proto getOnOff lake_shore")
+}
+
+record (ai, "$(group):$(device):MField") {
+	field(DESC, "Magnetic Field Set")
+	field(DTYP, "stream")
+	field(SCAN, "2 second")
+	field(PINI, "YES")
+	field(INP, "@magnet.proto getMField lake_shore")
+}
+
+record (bo, "$(group):$(device):ACDC") {
+	field(DESC, "Change AC DC modes")
+	field(DTYP, "stream")
+	field(SCAN, "Passive")
+	field(PINI, "YES")
+	field(OUT, "@magnet.proto setACDC lake_shore")
+}
+
+record (bi, "$(group):$(device):ACDC_RB") {
+	field(DESC, "Change AC DC modes")
+	field(DTYP, "stream")
+	field(SCAN, "2 second")
+	field(ZNAM, "AC")
+	field(ONAM. "DC"
+	field(PINI, "YES")
+	field(INP, "@magnet.proto getACDC lake_shore")
+}
+
+
+
+
+#	field(DESC, "Reading AC DC modes")
+#	field(DTYP, "stream")
+#	field(SCAN, "Passive")
+#	field(PINI, "YES")
+#	field(INP, "@magnet.proto getACDC lake_shore")
+#}

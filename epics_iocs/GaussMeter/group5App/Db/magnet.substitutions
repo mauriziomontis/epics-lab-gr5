@@ -1,0 +1,7 @@
+
+
+file "db/magnet.db" {
+    pattern 	{ group, device }
+    		
+    		{"group5", "GM"}
+}

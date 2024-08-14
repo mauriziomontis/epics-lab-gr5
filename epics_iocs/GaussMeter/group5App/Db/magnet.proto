@@ -1,0 +1,73 @@
+################################################
+## EPICS Summer School LakeShore Gaussmeter protocol file
+## Hatice Irem Nalcak
+################################################
+
+#Terminator = CR LF;
+InTerminator = CR LF;
+OutTerminator = CR LF;
+WriteTimeout = 1000;
+ReplyTimeout = 5000;
+ReadTimeout = 1000;
+
+
+#getID{
+#	out"QIDN? ";
+#	in"%35C";
+#}
+
+getOnOff{
+	out"ONOFF?";
+	in"%{0|1}";
+#	in"%f "
+}
+
+setOnOff{
+	out"ONOFF %{0|1}";
+#	in"%{0|1}"
+#	@init {getOnOff;}
+}
+
+
+
+getMField{
+	out"FIELD?";
+	in"%f ";
+}
+
+
+setACDC{
+	out"ACDC %{0|1}";
+#	in"%f";
+}
+
+getACDC{
+	out"ACDC?";
+	in"%{0|1}";
+#	@init {setACDC;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#	out"ACDC %{OFF|ON}";
+#	@init {getACDC;}
+#}
+
+
