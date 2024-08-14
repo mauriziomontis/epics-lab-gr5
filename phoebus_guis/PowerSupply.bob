@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2024-08-14 08:34:55 by epics-->
+<!--Saved on 2024-08-14 09:33:57 by epics-->
 <display version="2.0.0">
   <name>Display</name>
   <actions>
@@ -9,6 +9,23 @@
       <description>WritePV</description>
     </action>
   </actions>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>2</value>
+        <description>PROCC</description>
+      </action>
+    </actions>
+    <pv_name>GROUP5:PS:CURRENT_SP.PROC</pv_name>
+    <x>70</x>
+    <y>150</y>
+    <width>80</width>
+    <height>25</height>
+    <tooltip>$(actions)</tooltip>
+    <enabled>false</enabled>
+  </widget>
   <widget type="rectangle" version="2.0.0">
     <name>POWER_SUPPLY</name>
     <x>10</x>
@@ -142,28 +159,11 @@
     <precision>2</precision>
   </widget>
   <widget type="action_button" version="3.0.0">
-    <name>Action Button_2</name>
-    <actions>
-      <action type="write_pv">
-        <pv_name>$(pv_name)</pv_name>
-        <value>2</value>
-        <description>PROCC</description>
-      </action>
-    </actions>
-    <pv_name>GROUP5:PS:CURRENT_SP.PROC</pv_name>
-    <x>70</x>
-    <y>150</y>
-    <width>80</width>
-    <height>25</height>
-    <tooltip>$(actions)</tooltip>
-    <enabled>false</enabled>
-  </widget>
-  <widget type="action_button" version="3.0.0">
     <name>Action Button_3</name>
     <actions>
       <action type="write_pv">
         <pv_name>Gr5:Ax1_Mtr</pv_name>
-        <value>5000</value>
+        <value>9500</value>
         <description>BACK</description>
       </action>
     </actions>
@@ -179,7 +179,7 @@
     <actions>
       <action type="write_pv">
         <pv_name>Gr5:Ax1_Mtr</pv_name>
-        <value>3780</value>
+        <value>4500</value>
         <description>FRONT</description>
       </action>
     </actions>
