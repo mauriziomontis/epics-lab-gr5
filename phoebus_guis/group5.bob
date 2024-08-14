@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-08-14 07:04:28 by epics-->
+<display version="2.0.0">
+  <name>Display</name>
+  <actions>
+    <action type="write_pv">
+      <pv_name>Gr5:Ax1_Mtr</pv_name>
+      <value>1063</value>
+      <description>WritePV</description>
+    </action>
+  </actions>
+  <widget type="rectangle" version="2.0.0">
+    <name>POWER_SUPPLY</name>
+    <x>10</x>
+    <y>10</y>
+    <width>450</width>
+    <height>270</height>
+    <line_width>5</line_width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>POWER_SUPPLY</text>
+    <x>20</x>
+    <y>20</y>
+    <height>25</height>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>ON/OFF</name>
+    <class>ON_OFF</class>
+    <pv_name>GROUP5:PS:STATUSREGISTER.B0</pv_name>
+    <x>20</x>
+    <y>45</y>
+    <width>30</width>
+    <height>35</height>
+    <off_label>OFF</off_label>
+    <off_color use_class="true">
+      <color name="Off" red="60" green="100" blue="60">
+      </color>
+    </off_color>
+    <on_label>ON</on_label>
+    <on_color use_class="true">
+      <color name="On" red="0" green="255" blue="0">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="meter" version="3.0.0">
+    <name>CURRENT</name>
+    <pv_name>GROUP5:PS:CURRENT_RB</pv_name>
+    <x>30</x>
+    <y>90</y>
+    <width>180</width>
+    <height>105</height>
+    <format>4</format>
+    <limits_from_pv>false</limits_from_pv>
+    <maximum>10.0</maximum>
+  </widget>
+  <widget type="meter" version="3.0.0">
+    <name>VOLTAGE</name>
+    <pv_name>GROUP5:PS:VOLTAGE_RB</pv_name>
+    <x>220</x>
+    <y>90</y>
+    <width>160</width>
+    <height>106</height>
+    <limits_from_pv>false</limits_from_pv>
+    <maximum>20.0</maximum>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>STEP_MOTOR</name>
+    <x>490</x>
+    <y>20</y>
+    <width>300</width>
+    <height>260</height>
+    <line_width>10</line_width>
+    <line_color>
+      <color name="Attention" red="255" green="160" blue="0">
+      </color>
+    </line_color>
+    <line_style>2</line_style>
+    <background_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>STEP_MOTOR</text>
+    <x>510</x>
+    <y>30</y>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>GROUP5:PS:ONOFF.PROC</pv_name>
+        <value>0</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>GROUP5:PS:ONOFF.PROC</pv_name>
+    <text>ON/OFF</text>
+    <x>55</x>
+    <y>45</y>
+    <width>90</width>
+    <height>35</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <x>470</x>
+    <y>450</y>
+    <width>1</width>
+    <height>1</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry</name>
+    <pv_name>GROUP5:PS:CURRENT_SP</pv_name>
+    <x>40</x>
+    <y>210</y>
+    <width>150</width>
+    <height>35</height>
+    <precision>2</precision>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>2</value>
+        <description>PROCC</description>
+      </action>
+    </actions>
+    <pv_name>GROUP5:PS:CURRENT_SP.PROC</pv_name>
+    <x>70</x>
+    <y>150</y>
+    <width>80</width>
+    <height>25</height>
+    <tooltip>$(actions)</tooltip>
+    <enabled>false</enabled>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_3</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>Gr5:Ax1_Mtr</pv_name>
+        <value>1000</value>
+        <description>back</description>
+      </action>
+    </actions>
+    <pv_name>Gr5:Ax1_Mtr</pv_name>
+    <x>520</x>
+    <y>70</y>
+    <height>59</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_4</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>Gr5:Ax1_Mtr</pv_name>
+        <value>-3780</value>
+        <description>front</description>
+      </action>
+    </actions>
+    <pv_name>Gr5:Ax1_Mtr</pv_name>
+    <x>640</x>
+    <y>70</y>
+    <width>110</width>
+    <height>59</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="thermometer" version="2.0.0">
+    <name>Thermometer</name>
+    <x>550</x>
+    <y>390</y>
+  </widget>
+  <widget type="meter" version="3.0.0">
+    <name>Meter</name>
+    <x>600</x>
+    <y>390</y>
+    <width>150</width>
+    <height>80</height>
+  </widget>
+  <widget type="meter" version="3.0.0">
+    <name>Meter_1</name>
+    <x>600</x>
+    <y>490</y>
+    <width>150</width>
+    <height>80</height>
+  </widget>
+  <widget type="scrollbar" version="2.0.0">
+    <name>Scrollbar</name>
+    <x>530</x>
+    <y>160</y>
+    <width>190</width>
+    <height>50</height>
+  </widget>
+</display>
