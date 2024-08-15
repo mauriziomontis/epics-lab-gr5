@@ -1,12 +1,12 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python30
 
 from ophyd import Component, Device, EpicsSignal, EpicsSignalRO#, Status
 from ophyd.status import Status
 
 class PowerSupply(Device):
 
-	voltage_RB = Component(EpicsSignalRO, "VOLTAGE_RB")
-	current_RB = Component(EpicsSignalRO, "CURRENT_RB")
+	voltage_RB = Component(EpicsSignalRO, "VOLTAGE_RB", kind="hinted")
+	current_RB = Component(EpicsSignalRO, "CURRENT_RB", kind="hinted")
 	#current_RB = Component(EpicsSignalRO, "xxxExample")
 	skewrate_RB = Component(EpicsSignalRO, "SKEW_RATE_RB")
 	
@@ -30,7 +30,8 @@ class PowerSupply(Device):
 		
 		#Wait for actual current (RB) to reach setpoint (SP)
 		while(True):
-			if self.current_RB.get() == self.current_SP.get():
+			if abs(self.current_RB.get() - self.current_SP.get()) < 0.2:
+				
 				stat.set_finished()
 				break
 		

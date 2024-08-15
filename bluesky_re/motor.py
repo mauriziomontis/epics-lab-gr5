@@ -19,10 +19,7 @@ class Motor(Device):
 		
 		self.setpoint.set(int(position)*100)
 
-		while(True):
-			if abs(self.readback.get() - self.setpoint.get()) < 3:
-				sta.set_finished()
-				break
+		sta.set_finished()
 		
 		return sta
 	
