@@ -1,0 +1,62 @@
+TERMINATOR = "\r"; #CR LF;
+ReplyTimeout = 3000;
+
+GET_VOLTAGE {
+	OUT "MRV";
+	IN "#MRV:%f";
+}
+
+GET_CURRENT {
+	OUT "MRI";
+	IN "#MRI:%f";
+}
+
+SET_CURRENT {
+	OUT "MRM:%f";
+}
+
+SWITCH_ONOFF {
+	OUT "%{MON|MOFF}";
+}
+
+GET_STATUS {
+	OUT "MST";
+	IN "#MST:%2x";
+}
+
+
+#RESET {
+#	OUT "MRESET";
+#}
+
+SET_SKEWRATE {
+	OUT "MWSR:%f";
+}
+
+GET_SKEWRATE {
+	OUT "MRSR";
+	IN "#MRSR:%f";
+}
+
+GET_ID {
+	OUT "MRID";
+	IN "#MRID:%39c";
+}
+
+GET_FWVER {
+	OUT "MVER";
+	IN "#MVER:EASY-DRIVER:%39c";
+}
+
+GET_TEMP_MOSFET {
+	OUT "MRT";
+	IN "#MRT:%f";
+}
+
+GET_TEMP_RES {
+	OUT "MRTS";
+	IN "#MRTS:%f";
+}
+
+
+
