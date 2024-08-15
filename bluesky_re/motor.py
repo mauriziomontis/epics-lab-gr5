@@ -18,8 +18,9 @@ class Motor(Device):
 		sta = Status(settle_time=self.settle_time)
 		
 		self.setpoint.set(int(position)*100)
-		
-		sta.set_finished()
+
+		if abs(self.readback.get() - self.setpoint.get()) < 3:
+			sta.set_finished()
 		
 		return sta
 	
