@@ -15,3 +15,5 @@ from beamlinetools.devices.gaussmeter import Gaussmeter
 Gauss = Gaussmeter('group5:', name='Gauss')
 Gauss.wait_for_connection()
 
+from beamlinetools.devices.motor import Motor
+FB_stage = Motor('Gr5', name='FB_stage')
