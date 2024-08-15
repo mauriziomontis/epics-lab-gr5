@@ -15,12 +15,14 @@ class Motor(Device):
 	
 	def set(self, position:int):
 	
-		sta = Status(settle_time=self.settle_time)
+		sta = Status(settle_time=self.settle_time, timeout=30)
 		
 		self.setpoint.set(int(position)*100)
 
-		if abs(self.readback.get() - self.setpoint.get()) < 3:
-			sta.set_finished()
+		while(True):
+			if abs(self.readback.get() - self.setpoint.get()) < 3:
+				sta.set_finished()
+				break
 		
 		return sta
 	
