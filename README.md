@@ -18,3 +18,4 @@ In this laboratory, students will develop a control system to measure and contro
 - `epics_iocs/` - Contains sub-folders with all the different EPICS applications developed.
 - `phoebus_guis/` - Contains all the control panels developed.
 - `bluesky_re/` - Contains all the code developed for running the Bluesky framework.
+- `documentation/` - Contains all the documents and files used for the final report.
